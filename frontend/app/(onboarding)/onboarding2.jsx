@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 import CustomButton from "../components/CustomButton";
 
@@ -24,7 +24,7 @@ const onboarding2 = () => {
      </View>
      <Text className="text-primary font-primaryBold text-3xl mt-10 tracking-wider">What's do you originate from?</Text>
      <TextInput placeholder="Enter your hometown" className="text-center border-b-2 border-light pb-2 mt-10 w-full text-xl mb-4"/>
-      <TouchableOpacity onPress={() => router.push("onboarding2")}>
+      <TouchableOpacity onPress={() => router.push("onboarding3")}>
         <CustomButton title="Next" /> 
       </TouchableOpacity>
     </View>
