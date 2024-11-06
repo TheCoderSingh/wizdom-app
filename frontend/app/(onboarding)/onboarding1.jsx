@@ -1,5 +1,6 @@
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { images } from "../../constants";
+import { router } from "expo-router";
 import CustomButton from "../components/CustomButton";
 
 const onboarding1 = () => {
@@ -14,7 +15,9 @@ const onboarding1 = () => {
         placeholderTextColor={colors.light}
         className="border-b-2 text-center mt-8 mb-16 text-2xl pb-2 text-light border-light"
       />
-      <CustomButton title="Next" />
+      <TouchableOpacity onPress={() => router.push("onboarding2")}>
+        <CustomButton title="Next" /> 
+      </TouchableOpacity>
     </View>
   );
 };
