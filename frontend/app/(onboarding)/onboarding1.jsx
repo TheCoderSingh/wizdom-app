@@ -15,7 +15,7 @@ const onboarding1 = () => {
         placeholderTextColor={colors.light}
         className="border-b-2 text-center mt-8 mb-16 text-2xl pb-2 text-light border-light"
       />
-      <TouchableOpacity onPress={() => router.push("onboarding2")}>
+      <TouchableOpacity onPress={() => router.push("onboarding9")}>
         <CustomButton title="Next" /> 
       </TouchableOpacity>
     </View>
