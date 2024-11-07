@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
 import { images } from "../constants";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
 
@@ -26,13 +26,32 @@ const App = () => {
           resizeMode="contain"
         />
       </View>
-        <TouchableOpacity className="bg-primary w-full h-[120px] justify-center items-center" onPress={() => router.push("onboarding1")}>
-          
-            <Text className="text-white font-primary text-xl tracking-wider">
-              Let&apos;s get started &gt;
-            </Text>
-        
-        </TouchableOpacity>
+
+      <Text className="font-primary text-lg mb-2">
+        Already have an account?
+      </Text>
+      <TouchableOpacity className="bg-primary w-[100%] h-[80px] flex justify-center items-center mb-6 mx-4">
+        <Text className="text-white font-primary text-lg">Login</Text>
+      </TouchableOpacity>
+
+      <View className="flex flex-row items-center justify-center mb-5">
+        <View className="flex-1 border-t border-primary" />
+        <Text className="px-4 text-primary font-primary text-xl">OR</Text>
+        <View className="flex-1 border-t border-primary" />
+      </View>
+      <TouchableOpacity
+        className="bg-primary w-full h-[120px] flex flex-row justify-center items-center gap-2"
+        onPress={() => router.navigate("onboarding1")}
+      >
+        <Text className="text-white font-primary text-xl tracking-wider">
+          Let&apos;s get started
+        </Text>
+        <Image
+          source={images.forward}
+          className="h-6 w-6"
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );

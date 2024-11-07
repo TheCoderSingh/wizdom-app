@@ -1,13 +1,19 @@
 import { View, Text, Button, TouchableOpacity, Image } from "react-native";
 import { images } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
 
 const CustomHeader = () => {
+  const router = useRouter();
+
   return (
     <SafeAreaView>
       <View className="flex flex-row mt-14 justify-between w-[85%] mx-auto">
         <Image source={images.logow} className="w-14 h-11" />
-        <TouchableOpacity className="flex flex-row items-center justify-center gap-2">
+        <TouchableOpacity
+          className="flex flex-row items-center justify-center gap-2"
+          onPress={() => router.back()}
+        >
           <Image
             source={images.arrowLeft}
             className="h-9 w-9"
