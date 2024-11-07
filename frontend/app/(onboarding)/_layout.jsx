@@ -15,6 +15,10 @@ const OnboardingLayout = () => {
       <Stack.Screen name="onboarding5" options={{ headerShown: true }} />
       <Stack.Screen name="onboarding6" options={{ headerShown: true }} />
       <Stack.Screen name="onboarding7" options={{ headerShown: true }} />
+      <Stack.Screen name="onboarding8" options={{ headerShown: true }} />
+      <Stack.Screen name="onboarding9" options={{ headerShown: true }} />
+      <Stack.Screen name="onboarding10" options={{ headerShown: true }} />
+      <Stack.Screen name="onboarding11" options={{ headerShown: true }} />
     </Stack>
   );
 };

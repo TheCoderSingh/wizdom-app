@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
 import { images } from "../constants";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
 
@@ -41,7 +41,7 @@ const App = () => {
       </View>
       <TouchableOpacity
         className="bg-primary w-full h-[120px] flex flex-row justify-center items-center gap-2"
-        onPress={() => router.navigate("onboarding1")}
+        onPress={() => router.push("onboarding1")}
       >
         <Text className="text-white font-primary text-xl tracking-wider">
           Let&apos;s get started
