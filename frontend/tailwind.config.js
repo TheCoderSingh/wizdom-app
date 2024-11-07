@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: "#537AF2",
         light: "#D9D9D9",
+        heading: "#0E36B0"
       },
       fontFamily: {
         primary: "Montserrat-Regular",
