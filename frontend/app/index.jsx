@@ -3,6 +3,11 @@ import { images } from "../constants";
 import { router } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import * as SplashScreen from "expo-splash-screen";
+
+// Prevent the splash screen from auto-hiding
+SplashScreen.preventAutoHideAsync();
 
 const App = () => {
   const [fontsLoaded] = useFonts({
@@ -10,8 +15,19 @@ const App = () => {
     MontserratBold: require("../assets/fonts/Montserrat-Bold.ttf"),
   });
 
+  useEffect(() => {
+    const hideSplashScreen = async () => {
+      // Hide the splash screen as soon as the fonts are loaded
+      if (fontsLoaded) {
+        await SplashScreen.hideAsync();
+      }
+    };
+
+    hideSplashScreen();
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
-    return null; // Render a loading screen if fonts are not loaded
+    return null; // Or render a loading screen here
   }
 
   return (
