@@ -6,7 +6,9 @@ const asyncHandler = require("express-async-handler");
 const { protect } = require("../middleware/authMiddleware");
 const { validateUserInput } = require("../middleware/validation");
 
-// Get all users
+// @desc    Get all users
+// @route   GET /api/users
+// @access  Private (Admin or authenticated user)
 router.get(
   "/",
   protect,
@@ -16,7 +18,9 @@ router.get(
   })
 );
 
-// Get a specific user by id
+// @desc    Get a single user by ID
+// @route   GET /api/users/:id
+// @access  Private
 router.get(
   "/.id",
   protect,
@@ -29,7 +33,9 @@ router.get(
   })
 );
 
-// Create a new user
+// @desc    Create a new user
+// @route   POST /api/users
+// @access  Public
 router.post(
   "/",
   validateUserInput,
@@ -98,7 +104,9 @@ router.post(
   })
 );
 
-// Update user profile
+// @desc    Update user profile
+// @route   PUT /api/users/:id
+// @access  Private
 router.put(
   "/:id",
   protect,
@@ -117,4 +125,18 @@ router.put(
   })
 );
 
-// Delete a user
+// @desc    Delete a user
+// @route   DELETE /api/users/:id
+// @access  Private (Admin or user themselves)
+router.delete(
+  "/:id",
+  protect,
+  asyncHandler(async (req, res) => {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) {
+      res.status(404);
+      throw new Error("User not found");
+    }
+    res.status(200).json({ message: "User deleted" });
+  })
+);
