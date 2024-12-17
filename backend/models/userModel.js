@@ -106,11 +106,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: [],
   },
-  expertiseSkills: {
-    type: [String],
-    required: true,
-    default: [],
-  },
   matches: [
     {
       userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
